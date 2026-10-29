@@ -11,6 +11,9 @@ public class TestBase {
     public static void beforeAll() {
         Configuration.baseUrl = "https://autotests.ai/stack/" +
                 "backend-java-spring/frontend-typescript-react";
+//        Configuration.browser = "chrome";
+//        Configuration.browserSize = "1920x1080";
+//        Configuration.holdBrowserOpen = true;
     }
     
     @AfterEach

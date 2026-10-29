@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
-public class RegistrationTests {
+public class RegistrationTests extends TestBase {
 
     @Test
     @Disabled("todo: add random username generation")
