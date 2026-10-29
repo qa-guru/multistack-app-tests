@@ -1,8 +1,17 @@
 package utils;
 
+import net.datafaker.Faker;
+
 import java.security.SecureRandom;
 
 public class RandomUtils {
+
+    static Faker faker = new Faker();
+
+    public static String getRandomUserName() {
+        return faker.credentials().username();
+    }
+
     public static String getRandomString(int length) {
 //        String LETTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
         String LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -14,4 +23,5 @@ public class RandomUtils {
 
         return result.toString();
     }
+
 }
