@@ -1,22 +1,25 @@
 package tests;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
+import static java.lang.String.format;
 import static testdata.TestData.*;
+import static utils.RandomUtils.getRandomString;
 
 public class RegistrationTests extends TestBase {
 
     @Test
-    @Disabled("todo: add random username generation")
     void successfulRegistrationTest() {
+        String randomUserName = "auto_" + getRandomString(10);
+        String welcomeMessage = format(SUCCESSFUL_LOGIN_TEMPLATE, randomUserName);
+
         open("/register");
-        $("[data-testid=register-login-input]").setValue("todo");
+        $("[data-testid=register-login-input]").setValue(randomUserName);
         $("[data-testid=register-password-input]").setValue(PASSWORD);
         $("[data-testid=confirm-password-input]").setValue(PASSWORD).pressEnter();
-        $("[data-testid=welcome-message]").shouldBe(text(SUCCESSFUL_LOGIN_MESSAGE));
+        $("[data-testid=welcome-message]").shouldBe(text(welcomeMessage));
     }
 
     @Test
