@@ -8,9 +8,7 @@ public class TestData {
     public static final String WRONG_PASSWORD = "1244351341";
 
     // Login page
-    public static final String SUCCESSFUL_LOGIN_TEMPLATE = "Welcome, %s!";
-    public static final String SUCCESSFUL_LOGIN_MESSAGE = format(SUCCESSFUL_LOGIN_TEMPLATE, USERNAME);
-    public static final String WRONG_CREDENTIALS_MESSAGE = "1244351341";
+    public static final String WRONG_CREDENTIALS_MESSAGE = "Wrong login or password";
     public static final String NO_PASSWORD_MESSAGE = "Password is required (minimum 6 characters)";
 
     // Registration page
