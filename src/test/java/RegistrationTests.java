@@ -14,8 +14,6 @@ public class RegistrationTests {
         $("[data-testid=register-password-input]").setValue("password1");
         $("[data-testid=confirm-password-input]").setValue("password1").pressEnter();
         $("[data-testid=welcome-message]").shouldBe(text("Welcome, user1!"));
-
-        closeWebDriver();
     }
 
     @Test
@@ -25,7 +23,5 @@ public class RegistrationTests {
         $("[data-testid=register-password-input]").setValue("password1");
         $("[data-testid=confirm-password-input]").setValue("password1").pressEnter();
         $("[data-testid=register-error-message]").shouldBe(text("Username already taken"));
-
-        closeWebDriver();
     }
 }
