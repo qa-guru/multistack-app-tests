@@ -1,6 +1,5 @@
 package testdata;
 
-import static java.lang.String.format;
 
 public class TestData {
     public static final String USERNAME = "user1";

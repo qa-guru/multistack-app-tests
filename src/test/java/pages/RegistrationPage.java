@@ -14,27 +14,45 @@ public class RegistrationPage {
     private SelenideElement errorMessage = $("[data-testid=register-error-message]");
 
 
-    public void openPage() {
+    public RegistrationPage openPage() {
         open("/register");
+
+        return this;
     }
 
-    public void setUserName(String userName) {
+    public RegistrationPage setUserName(String userName) {
         loginInput.setValue(userName);
+
+        return this;
     }
 
-    public void setPassword(String password) {
+    public RegistrationPage setPassword(String password) {
         passwordInput.setValue(password);
+
+        return this;
     }
 
-    public void confirmPassword(String password) {
+    public RegistrationPage confirmPassword(String password) {
         confirmPasswordInput.setValue(password);
+
+        return this;
     }
 
-    public void submit() {
+    public HomePage submit() {
         submitButton.click();
+
+        return new HomePage();
     }
 
-    public void verifyErrorMessage(String message) {
+    public RegistrationPage submitExceptingError() {
+        submitButton.click();
+
+        return this;
+    }
+
+    public RegistrationPage verifyErrorMessage(String message) {
         errorMessage.shouldHave(text(message));
+
+        return this;
     }
 }

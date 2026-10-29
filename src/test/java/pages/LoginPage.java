@@ -13,23 +13,39 @@ public class LoginPage {
     private SelenideElement errorMessage = $("[data-testid=error-message]");
 
 
-    public void openPage() {
+    public LoginPage openPage() {
         open("/login");
+
+        return this;
     }
 
-    public void setUserName(String userName) {
+    public LoginPage setUserName(String userName) {
         loginInput.setValue(userName);
+
+        return this;
     }
 
-    public void setPassword(String password) {
+    public LoginPage setPassword(String password) {
         passwordInput.setValue(password);
+
+        return this;
     }
 
-    public void submit() {
+    public HomePage submit() {
         submitButton.click();
+
+        return new HomePage();
     }
 
-    public void verifyErrorMessage(String message) {
+    public LoginPage submitExceptingError() {
+        submitButton.click();
+
+        return this;
+    }
+
+    public LoginPage verifyErrorMessage(String message) {
         errorMessage.shouldHave(text(message));
+
+        return this;
     }
 }

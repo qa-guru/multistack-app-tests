@@ -3,11 +3,19 @@ package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import pages.HomePage;
+import pages.LoginPage;
+import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 
 public class TestBase {
+
+    LoginPage loginPage = new LoginPage();
+    RegistrationPage registrationPage = new RegistrationPage();
+    HomePage homePage = new HomePage();
+
 
     @BeforeAll
     public static void beforeAll() {
