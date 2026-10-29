@@ -5,16 +5,11 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationTests {
-// https://autotests.ai/stack/backend-java-spring/frontend-typescript-react/register
-// register-login-input
-// register-password-input
-// confirm-password-input
-// register-error-message
 
     @Test
     @Disabled("todo: add random username generation")
     void successfulRegistrationTest() {
-        open("https://autotests.ai/stack/backend-java-spring/frontend-typescript-react/register");
+        open("/register");
         $("[data-testid=register-login-input]").setValue("user1");
         $("[data-testid=register-password-input]").setValue("password1");
         $("[data-testid=confirm-password-input]").setValue("password1").pressEnter();
@@ -25,7 +20,7 @@ public class RegistrationTests {
 
     @Test
     void existingUserTest() {
-        open("https://autotests.ai/stack/backend-java-spring/frontend-typescript-react/register");
+        open("/register");
         $("[data-testid=register-login-input]").setValue("user1");
         $("[data-testid=register-password-input]").setValue("password1");
         $("[data-testid=confirm-password-input]").setValue("password1").pressEnter();

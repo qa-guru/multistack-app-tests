@@ -1,3 +1,5 @@
+import com.codeborne.selenide.Config;
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -7,7 +9,7 @@ public class LoginTests {
 
     @Test
     void successfulLoginTest() {
-        open("https://autotests.ai/stack/backend-java-spring/frontend-typescript-react/login");
+        open("/login");
         $("[data-testid=login-input]").setValue("user1");
         $("[data-testid=password-input]").setValue("password1").pressEnter();
         $("[data-testid=welcome-message]").shouldBe(text("Welcome, user1!"));
@@ -17,7 +19,7 @@ public class LoginTests {
 
     @Test
     void wrongPasswordTest() {
-        open("https://autotests.ai/stack/backend-java-spring/frontend-typescript-react/login");
+        open("/login");
         $("[data-testid=login-input]").setValue("user1");
         $("[data-testid=password-input]").setValue("WRONGPASSWORD").pressEnter();
         $("[data-testid=error-message]").shouldBe(text("Wrong login or password"));
@@ -27,7 +29,7 @@ public class LoginTests {
 
     @Test
     void missingPasswordTest() {
-        open("https://autotests.ai/stack/backend-java-spring/frontend-typescript-react/login");
+        open("/login");
         $("[data-testid=login-input]").setValue("user1").pressEnter();
         $("[data-testid=error-message]").shouldBe(text("Password is required (minimum 6 characters)"));
 
